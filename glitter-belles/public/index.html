@@ -170,7 +170,7 @@ async function slots(){time='';const taken=dt.value?await (await fetch('/api/slo
 dt.onchange=slots;slots();
 $('#bf').onsubmit=async e=>{e.preventDefault();const f=e.target,m=$('#msg'),E=f.elements,ph=E.phone.value;if(!time){m.textContent='Pick a time slot.';return}
  $('#sb').disabled=true;$('#sb').textContent='Booking…';
- const r=await fetch('/api/bookings',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:E.name.value,phone:ph,date:dt.value,time,notes:E.notes.value,services:services.filter(s=>picks.has(s.id)).map(s=>s.name)})});
+ const r=await fetch('https://glitter-belles-backend.onrender.com/api/bookings',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:E.name.value,phone:ph,date:dt.value,time,notes:E.notes.value,services:services.filter(s=>picks.has(s.id)).map(s=>s.name)})});
  const j=await r.json().catch(()=>({error:'Booking needs the server. Run npm start and open localhost:3000.'}));
  if(r.ok){f.innerHTML=`<div class="ok"><svg viewBox="0 0 52 52" fill="none" stroke="#d9b25f" stroke-width="4"><circle cx="26" cy="26" r="22"/><path d="M15 27l8 8 14-16"/></svg><h2 style="font-size:2rem">You’re booked</h2><p>${dt.value} at ${time}. We’ll confirm on ${ph} shortly.</p><button onclick="location.reload()" style="margin-top:1rem;padding:0.6rem 1.2rem;border-radius:999px;border:none;background:#ff3366;color:#fff;cursor:pointer;font-weight:600;">Book another slot</button></div>`;if(!still)gsap.from('.ok',{scale:.8,opacity:0,duration:.6,ease:'back.out(2)'})}
  else{m.textContent=j.error;$('#sb').disabled=false;$('#sb').textContent='Confirm booking';slots()}};
