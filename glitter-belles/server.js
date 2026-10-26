@@ -1,6 +1,8 @@
 // Glitter Belles – tiny backend. Data lives in data.json (no database needed).
 const express = require('express'), fs = require('fs'), path = require('path'), crypto = require('crypto');
 const app = express(), FILE = path.join(__dirname, 'data.json');
+const cors = require ('cors'); 
+app.use(cors());
 const PASS = process.env.ADMIN_PASSWORD || 'glitter123'; // CHANGE THIS before going live
 const seed = {
   services: [
