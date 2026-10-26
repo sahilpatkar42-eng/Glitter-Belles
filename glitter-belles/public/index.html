@@ -165,7 +165,7 @@ gsap.set('#tray',{xPercent:-50,y:160});
 const SL=['11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00'];let time='';
 const dt=$('#date');dt.min=new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10);
 async function slots(){time='';const taken=dt.value?await (await fetch('/api/slots?date='+dt.value)).json():[];
- $('#slots').innerHTML=SL.map(s=>`<button type="button" ${taken.includes(s)||!dt.value?'disabled':''}>${s}</button>`).join('');
+ $('#slots').innerHTML=SL.map(s=>`<button type="button" ${taken.includes(s)?'disabled':''}>${s}</button>`).join('');
  $('#slots').querySelectorAll('button').forEach(b=>b.onclick=()=>{time=b.textContent;$('#slots').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x==b))})}
 dt.onchange=slots;slots();
 $('#bf').onsubmit=async e=>{e.preventDefault();const f=e.target,m=$('#msg'),E=f.elements,ph=E.phone.value;if(!time){m.textContent='Pick a time slot.';return}
