@@ -1,5 +1,54 @@
 {
-  "services": [],
+  "services": [    {
+      "id": "s1",
+      "name": "Customised Press-On Nails",
+      "category": "Press-On",
+      "price": 450,
+      "duration": "45m",
+      "description": "Handcrafted custom press-on sets tailored to your style. Prices vary by design.",
+      "image": "/images/nail-1.jpeg",
+      "active": true
+    },
+    {
+      "id": "s2",
+      "name": "Gel Polish",
+      "category": "Polish",
+      "price": 400,
+      "duration": "30m",
+      "description": "Long-lasting, chip-resistant gel polish application.",
+      "image": "/images/nail-2.jpeg",
+      "active": true
+    },
+    {
+      "id": "s3",
+      "name": "Gel-X Extensions",
+      "category": "Extensions",
+      "price": 800,
+      "duration": "60m",
+      "description": "Full-cover soft gel nail extension system for natural-looking length.",
+      "image": "/images/nail-3.jpeg",
+      "active": true
+    },
+    {
+      "id": "s4",
+      "name": "Gel Extensions",
+      "category": "Extensions",
+      "price": 1000,
+      "duration": "75m",
+      "description": "Hard gel sculpted extensions built for strength and custom length.",
+      "image": "/images/nail-4.jpeg",
+      "active": true
+    },
+    {
+      "id": "s5",
+      "name": "Nail Art & Custom Designs",
+      "category": "Art",
+      "price": 60,
+      "duration": "30m",
+      "description": "Custom nail art and detailing. Final price depends on design complexity.",
+      "image": "/images/nail-1.jpeg",
+      "active": true
+    }],
   "offers": [
     {
       "id": "o1",
