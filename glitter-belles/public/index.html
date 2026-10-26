@@ -1,0 +1,186 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Glitter Belles · Soft gel, extensions & custom nail art</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1d0710;--bg2:#2b0d17;--lac:#c1123f;--gold:#d9b25f;--blush:#f7dcd6;--t:#fbeeeb}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--t);font:17px/1.6 Figtree,system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;line-height:1.02;letter-spacing:-.02em}
+#gl{position:fixed;left:0;top:0;width:100%;height:100%;z-index:0;pointer-events:none}
+section,header.top{position:relative;z-index:1}
+header.top{position:fixed;inset:0 0 auto;z-index:5;display:flex;justify-content:space-between;align-items:center;padding:14px 5vw;backdrop-filter:blur(10px);background:#1d071099}
+.logo{font:800 1.25rem 'Bricolage Grotesque';color:var(--blush);text-decoration:none}
+a.btn,button.btn{display:inline-block;border:0;border-radius:99px;padding:13px 26px;background:var(--lac);color:#fff;font:600 1rem Figtree;text-decoration:none;cursor:pointer;transition:transform .2s,box-shadow .2s}
+a.btn:hover,button.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px #c1123f66}a.btn.g{background:none;border:1px solid var(--gold);color:var(--gold)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:100px 5vw 60px}
+.hero h1{font-size:clamp(3.4rem,11vw,9.5rem);font-weight:800;color:var(--blush)}
+.hero h1 span{display:inline-block}.hero p{max-width:30ch;margin:22px 0 30px;font-size:1.2rem;opacity:.9}.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.wrap{padding:90px 5vw}.wrap h2{font-size:clamp(2.2rem,6vw,4.5rem);margin-bottom:10px}.sub{max-width:44ch;opacity:.85;margin-bottom:28px}
+.cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}.cats button{background:none;border:1px solid #d9b25f66;color:var(--t);border-radius:99px;padding:8px 18px;cursor:pointer;font:inherit}
+.cats button.on{background:var(--gold);color:#2b0d17;border-color:var(--gold)}
+#grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;width:min(100%,780px)}
+.card{background:#2b0d17dd;backdrop-filter:blur(8px);border:1px solid #d9b25f33;border-radius:22px 22px 22px 6px;padding:22px;display:flex;flex-direction:column;gap:8px;transition:transform .3s,border-color .3s}
+.card{transition:border-color .3s,background .3s,box-shadow .3s;will-change:transform}.card:hover{border-color:var(--gold);box-shadow:0 18px 50px #c1123f40}.card h3{font-size:1.45rem}.card p{opacity:.8;font-size:.95rem;flex:1}
+.card .pr{display:flex;justify-content:space-between;align-items:center;margin-top:8px}.card b{font:800 1.4rem 'Bricolage Grotesque';color:var(--gold)}
+.card button{border:1px solid var(--gold);background:none;color:var(--gold);border-radius:99px;padding:8px 16px;cursor:pointer;font:600 .95rem Figtree}
+.card.sel{border-color:var(--lac);background:#4a0f23ee}.card.sel button{background:var(--lac);border-color:var(--lac);color:#fff}
+#offers{position:relative;z-index:1;overflow:hidden;background:var(--gold);color:#2b0d17;padding:14px 0;font:800 1.2rem 'Bricolage Grotesque'}
+#offers div{display:flex;gap:60px;width:max-content;animation:mq 28s linear infinite}@keyframes mq{to{transform:translateX(-50%)}}
+.book{display:flex;justify-content:flex-end}form{background:#2b0d17ee;backdrop-filter:blur(10px);border:1px solid #d9b25f55;border-radius:28px;padding:28px;width:min(100%,520px);display:grid;gap:14px}
+form label{display:grid;gap:6px;font-size:.9rem}input,textarea{background:#1d0710;border:1px solid #d9b25f55;border-radius:12px;padding:12px;color:var(--t);font:inherit}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.slots button{padding:10px 0;border-radius:10px;border:1px solid #d9b25f66;background:none;color:var(--t);cursor:pointer;transition:.2s}
+.slots button.on{background:var(--gold);color:#2b0d17}.slots button:disabled{opacity:.3;text-decoration:line-through;cursor:not-allowed}
+#picked{font-size:.95rem;color:var(--gold)}#msg{min-height:1.4em}
+#tray{position:fixed;z-index:6;left:50%;bottom:16px;background:var(--blush);color:#2b0d17;border-radius:99px;padding:10px 12px 10px 22px;display:flex;gap:16px;align-items:center;box-shadow:0 10px 40px #0008;white-space:nowrap}
+footer{position:relative;z-index:1;padding:40px 5vw 90px;text-align:center;opacity:.7}
+.ok{text-align:center;padding:30px 0}.ok svg{width:80px}.ok path{stroke-dasharray:60;stroke-dashoffset:60;animation:d .8s .1s forwards}@keyframes d{to{stroke-dashoffset:0}}
+#prog{position:fixed;z-index:9;left:0;top:0;height:3px;width:100%;background:linear-gradient(90deg,var(--lac),var(--gold));transform:scaleX(0);transform-origin:0}
+#glow{position:fixed;z-index:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;background:radial-gradient(#c1123f33,#0000 65%);pointer-events:none;left:0;top:0}
+#ld{position:fixed;inset:0;z-index:20;background:var(--bg);display:grid;place-items:center;font:800 2rem 'Bricolage Grotesque';color:var(--gold);transition:opacity .8s,visibility .8s}#ld.off{opacity:0;visibility:hidden}
+#ld i{display:block;width:140px;height:3px;background:#d9b25f33;margin:14px auto 0;overflow:hidden}#ld i:after{content:"";display:block;height:100%;width:40%;background:var(--gold);animation:ls 1s infinite}@keyframes ls{from{margin-left:-40%}to{margin-left:100%}}
+.hint{margin-top:34px;font-size:.9rem;opacity:.7}.hint:after{content:"";display:block;width:2px;height:40px;background:var(--gold);margin:10px 0 0;animation:hn 1.6s infinite;transform-origin:top}@keyframes hn{0%{transform:scaleY(0)}60%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+.nav a:not(.btn){color:var(--t);text-decoration:none;margin-right:22px;opacity:.85}.nav a:not(.btn):hover{color:var(--gold)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;width:min(100%,780px);position:relative}
+.steps div{background:#2b0d17dd;border:1px solid #d9b25f33;border-radius:22px;padding:22px}.steps b{font:800 2.6rem 'Bricolage Grotesque';color:var(--gold)}.steps h3{font-size:1.3rem;margin:4px 0}.steps p{font-size:.95rem;opacity:.8}
+.line{height:3px;background:#d9b25f33;width:min(100%,780px);margin-bottom:18px}.line i{display:block;height:100%;background:var(--lac);transform:scaleX(0);transform-origin:0}
+@media(max-width:800px){.nav a:not(.btn){display:none}.steps{grid-template-columns:1fr}#glow{display:none}}
+@media(max-width:800px){.book{justify-content:center}.hero{text-align:center;align-items:center}.slots{grid-template-columns:repeat(3,1fr)}#grid{margin:auto}.card{background:#2b0d17f2}}
+@media(prefers-reduced-motion:reduce){#offers div{animation:none}*{transition:none!important}}
+.pf{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;width:min(100%,900px)}
+.pf figure{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:22px 22px 22px 6px;border:1px solid #d9b25f33;background:#2b0d17}
+.pf img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.pf figure:hover img{transform:scale(1.08)}
+.pf figure:hover{border-color:var(--gold)}
+.pf figcaption{position:absolute;inset:auto 0 0;padding:34px 14px 12px;background:linear-gradient(#0000,#1d0710ee);font-size:.9rem}
+@media(max-width:800px){.pf{grid-template-columns:repeat(2,1fr);gap:12px}}
+</style></head><body>
+<div id="ld"><div>Glitter Belles<i></i></div></div><div id="prog"></div><div id="glow"></div>
+<script>window.err=m=>{let d=document.getElementById('eb');if(!d){d=document.createElement('div');d.id='eb';d.style.cssText='position:fixed;z-index:30;left:8px;right:8px;bottom:8px;background:#fff;color:#b00;padding:10px;font:13px monospace;border-radius:8px';document.documentElement.appendChild(d)}d.textContent='Debug: '+m};
+addEventListener('error',e=>err(e.message||('failed to load '+(e.target.src||e.target.href))),true);addEventListener('unhandledrejection',e=>err(String(e.reason)))</script>
+<canvas id="gl"></canvas>
+<header class="top"><a class="logo" href="#top">Glitter Belles</a><nav class="nav"><a href="#services">Services</a><a href="#how">How it works</a><a class="btn" href="#book">Book a slot</a></nav></header>
+<section class="hero" id="top"><h1 id="h">Nails you’ll be obsessed with</h1><p>Soft gel, extensions and custom nail art by Vini Shroff. Light, long-lasting, natural.</p>
+<div class="cta"><a class="btn" href="#book">Book a slot</a><a class="btn g" href="#services">See services</a></div></section>
+<div id="offers" hidden><div id="mq"></div></div>
+<section class="wrap" id="services"><h2>Services</h2><p class="sub">Pick one or a few. We’ll add them to your booking.</p><div class="cats" id="cats"></div><div id="grid"></div></section>
+<section class="wrap" id="portfolio">
+  <h2>Portfolio</h2>
+  <p class="sub">Sets we’ve created, from soft gel to custom nail art.</p>
+  <div class="pf">
+    <figure><img src="images/nail-1.jpeg" alt="Ruby red Glitter"><figcaption>Ruby red glitter</figcaption></figure>
+    <figure><img src="images/nail-2.jpeg" alt="Emerald nails with gold foil"><figcaption>Emerald &amp; gold foil</figcaption></figure>
+    <figure><img src="images/nail-3.jpeg" alt="Deep wine gloss nails"><figcaption>Deep wine gloss</figcaption></figure>
+    <figure><img src="images/nail-4.jpeg" alt="Burgundy nails with a bow and heart"><figcaption>Bow &amp; heart</figcaption></figure>
+  </div>
+</section>
+<section class="wrap" id="how"><h2>How it works</h2><p class="sub">Three steps, about a minute.</p><div class="line"><i id="ln"></i></div><div class="steps"><div><b>1</b><h3>Pick your services</h3><p>Tap Add on anything you like. Your total updates as you go.</p></div><div><b>2</b><h3>Choose a slot</h3><p>Pick a date and a free time. Taken slots are greyed out.</p></div><div><b>3</b><h3>Get your nails done</h3><p>We confirm on your phone and have your set ready.</p></div></div></section>
+<section class="wrap book" id="book"><form id="bf"><h2 style="font-size:2.4rem">Book a slot</h2><div id="picked">No service picked yet. Choose some above, or tell us in the notes.</div>
+<label>Name<input name="name" required autocomplete="name"></label><label>Phone / WhatsApp<input name="phone" type="tel" required autocomplete="tel"></label>
+<label>Date<input name="date" id="date" type="date" required></label><div><div style="font-size:.9rem;margin-bottom:6px">Time</div><div class="slots" id="slots"></div></div>
+<label>Notes or reference<textarea name="notes" rows="2" placeholder="Shape, colours, inspiration"></textarea></label>
+<button class="btn" id="sb">Confirm booking</button><div id="msg" role="status"></div></form></section>
+<footer>© Glitter Belles · <a href="https://www.instagram.com/glitterbelles_" style="color:var(--gold)">Instagram @glitterbelles_</a></footer>
+<div id="tray"><span id="tc"></span><a class="btn" href="#book">Book now</a></div>
+
+<script src="/vendor/gsap/dist/gsap.min.js"></script>
+<script>window.gsap||document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"><\/script>')</script>
+<script src="/vendor/gsap/dist/ScrollTrigger.min.js"></script>
+<script>window.ScrollTrigger||document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"><\/script>');window.gsap||err('Libraries missing. In the project folder run npm install, then npm start, and open http://localhost:3000')</script>
+<script>(function(){var ok=false;try{var x=new XMLHttpRequest();x.open('HEAD','/vendor/three/build/three.module.js',false);x.send();ok=x.status==200}catch(e){}
+var b=ok?'/vendor/three':'https://cdn.jsdelivr.net/npm/three@0.160.0';
+document.write('<script type="importmap">'+JSON.stringify({imports:{three:b+'/build/three.module.js','three/addons/':b+'/examples/jsm/'}})+'<\/script>')})()</script>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+gsap.registerPlugin(ScrollTrigger);
+const $=s=>document.querySelector(s),inr=n=>'₹'+Number(n).toLocaleString('en-IN'),still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* ---------- 3D bottle ---------- */
+const cv=$('#gl'),R=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});R.setPixelRatio(Math.min(devicePixelRatio,2));R.toneMapping=THREE.ACESFilmicToneMapping;
+const sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(35,1,.1,50);cam.position.z=6;
+sc.environment=new THREE.PMREMGenerator(R).fromScene(new RoomEnvironment(),.04).texture;
+const key=new THREE.DirectionalLight(0xffffff,2);key.position.set(3,4,5);sc.add(key,new THREE.AmbientLight(0xffffff,.4));
+const N=260,pp=new Float32Array(N*3);for(let i=0;i<N*3;i++)pp[i]=(Math.random()-.5)*(i%3==0?10:i%3==1?8:5);
+const gg=new THREE.BufferGeometry();gg.setAttribute('position',new THREE.BufferAttribute(pp,3));
+const dust=new THREE.Points(gg,new THREE.PointsMaterial({color:0xd9b25f,size:.04,transparent:true,opacity:.85,depthWrite:false}));sc.add(dust);
+const holder=new THREE.Group(),bob=new THREE.Group();holder.add(bob);sc.add(holder);holder.visible=false;window.GB={holder};
+const size=()=>{R.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.updateProjectionMatrix()};size();addEventListener('resize',size);
+new GLTFLoader().load('/model/polish.glb',g=>{const m=g.scene,b=new THREE.Box3().setFromObject(m),s=new THREE.Vector3();b.getSize(s);
+ m.scale.setScalar(2.6/Math.max(s.x,s.y,s.z));b.setFromObject(m);const c=new THREE.Vector3();b.getCenter(c);m.position.sub(c);bob.add(m);holder.visible=true;document.getElementById('ld').classList.add('off');m.traverse(o=>{if(o.material)o.material.envMapIntensity=1.4});try{scrollAnim()}catch(e){err('Scroll animation: '+e.message)}
+ gsap.from(holder.scale,{x:.01,y:.01,z:.01,duration:1.4,ease:'back.out(1.6)'})},undefined,e=>{err('Real bottle model failed: '+(e.message||e)+(bob.children.length?'':' (showing plain backup bottle)'));if(!bob.children.length)fallback()});
+function fallback(){const g=new THREE.Group(),red=new THREE.MeshPhysicalMaterial({color:0xc1123f,roughness:.1,clearcoat:1});
+ const b=new THREE.Mesh(new THREE.CylinderGeometry(.6,.65,1.4,48),red);b.position.y=-.4;
+ const c=new THREE.Mesh(new THREE.CylinderGeometry(.24,.28,1.1,32),new THREE.MeshStandardMaterial({color:0x151015,roughness:.3,metalness:.6}));c.position.y.toString();c.position.y=.85;
+ g.add(b,c);bob.add(g);holder.visible=true;scrollAnim();document.getElementById('ld').classList.add('off')}
+let mx=0,my=0;addEventListener('pointermove',e=>{mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+R.setAnimationLoop(t=>{if(!still)bob.position.y=Math.sin(t/900)*.08;dust.rotation.y=t/9000;dust.position.y=scrollY/innerHeight*.45;R.render(sc,cam)});
+function scrollAnim(){const mm=gsap.matchMedia();
+ mm.add({d:'(min-width:801px)',m:'(max-width:800px)'},ctx=>{const d=ctx.conditions.d,X=d?1.7:0,S=d?1:.62;
+  holder.position.set(X,d?0:.3,0);holder.scale.setScalar(S);
+  const tl=gsap.timeline({defaults:{ease:'none'},scrollTrigger:{trigger:document.body,start:'top top',end:'bottom bottom',scrub:1.2}});
+  tl.to(holder.rotation,{y:Math.PI*6,x:.25,duration:3},0)
+    .to(holder.position,{x:d?-X:0,y:d?0:.9,duration:1},0)       // hero → services
+    .to(holder.position,{x:d?X*.9:0,y:d?.2:1.1,duration:1},1)   // services → offers
+    .to(holder.scale,{x:S*.8,y:S*.8,z:S*.8,duration:1},1)
+    .to(holder.position,{x:d?-X:0,y:d?-.2:1.2,duration:1},2)   // → booking
+    .to(holder.scale,{x:S*.9,y:S*.9,z:S*.9,duration:1},2);});}
+
+</script>
+<script type="module">
+const $=s=>document.querySelector(s),inr=n=>'₹'+Number(n).toLocaleString('en-IN'),still=matchMedia('(prefers-reduced-motion:reduce)').matches;
+gsap.registerPlugin(ScrollTrigger);
+setTimeout(()=>{$('#ld').classList.add('off');if(!window.GB)err('3D did not start. Run npm install, then npm start, and open http://localhost:3000 (not Live Server or the file itself).')},4500);
+/* ---------- hero text, one orchestrated entrance ---------- */
+const h=$('#h');h.innerHTML=h.textContent.split(' ').map(w=>`<span>${w}</span>`).join(' ');
+if(!still){gsap.from('#h span',{yPercent:110,opacity:0,rotate:4,stagger:.09,duration:1,ease:'power4.out'});gsap.from('.hero p,.hero .cta',{opacity:0,y:20,delay:.7,stagger:.12})}
+
+/* ---------- services & offers (from backend) ---------- */
+let services=[],picks=new Set(),cat='All';
+const grid=$('#grid');
+async function load(){
+ let offers=[];try{services=await (await fetch('/api/services')).json();offers=await (await fetch('/api/offers')).json()}catch(e){services=[{id:'s1',name:'Soft Gel Full Set',category:'Soft gel',price:1500,description:'Lightweight, long-lasting, natural finish.'},{id:'s2',name:'Gel Extensions',category:'Extensions',price:2200,description:'Sculpted length in your shape.'},{id:'s3',name:'Custom Nail Art',category:'Nail art',price:800,description:'Chrome, gold foil, florals.'}]}
+ if(offers.length){$('#offers').hidden=false;const t=offers.map(o=>`<span>✦ ${o.title}: ${o.text}</span>`).join('');$('#mq').innerHTML=t+t+t+t}
+ const cs=['All',...new Set(services.map(s=>s.category))];
+ $('#cats').innerHTML=cs.map(c=>`<button class="${c==cat?'on':''}">${c}</button>`).join('');
+ $('#cats').querySelectorAll('button').forEach(b=>b.onclick=()=>{cat=b.textContent;load2()});load2()}
+function load2(){$('#cats').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.textContent==cat));
+ const l=services.filter(s=>cat=='All'||s.category==cat);
+ grid.innerHTML=l.length?l.map(s=>`<article class="card ${picks.has(s.id)?'sel':''}" data-id="${s.id}"><h3>${s.name}</h3><p>${s.description||''}</p>
+ <div class="pr"><b>${inr(s.price)}</b><button>${picks.has(s.id)?'Added ✓':'Add to booking'}</button></div></article>`).join(''):'<p>New services are coming soon.</p>';
+ grid.querySelectorAll('.card').forEach(c=>c.querySelector('button').onclick=()=>{const i=c.dataset.id;picks.has(i)?picks.delete(i):picks.add(i);
+  c.classList.toggle('sel',picks.has(i));c.querySelector('button').textContent=picks.has(i)?'Added ✓':'Add to booking';
+  gsap.fromTo(c,{scale:.96},{scale:1,duration:.5,ease:'elastic.out(1,.4)'});if(!still)window.GB?.holder&&gsap.fromTo(GB.holder.rotation,{z:0},{z:.5,yoyo:true,repeat:1,duration:.25});sync()});
+ if(!still)gsap.from('.card',{opacity:0,y:30,stagger:.06,duration:.5})}
+function sync(){const l=services.filter(s=>picks.has(s.id)),tot=l.reduce((a,s)=>a+s.price,0);
+ $('#tc').textContent=`${l.length} service${l.length==1?'':'s'} · ${inr(tot)}`;
+ gsap.to('#tray',{y:l.length?0:160,duration:.5,ease:'back.out(1.4)'});
+ $('#picked').textContent=l.length?'Your picks: '+l.map(s=>s.name).join(', ')+' (≈ '+inr(tot)+')':'No service picked yet. Choose some above, or tell us in the notes.'}
+gsap.set('#tray',{xPercent:-50,y:160});
+
+/* ---------- booking ---------- */
+const SL=['11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00'];let time='';
+const dt=$('#date');dt.min=new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10);
+async function slots(){time='';const taken=dt.value?await (await fetch('/api/slots?date='+dt.value)).json():[];
+ $('#slots').innerHTML=SL.map(s=>`<button type="button" ${taken.includes(s)||!dt.value?'disabled':''}>${s}</button>`).join('');
+ $('#slots').querySelectorAll('button').forEach(b=>b.onclick=()=>{time=b.textContent;$('#slots').querySelectorAll('button').forEach(x=>x.classList.toggle('on',x==b))})}
+dt.onchange=slots;slots();
+$('#bf').onsubmit=async e=>{e.preventDefault();const f=e.target,m=$('#msg'),E=f.elements,ph=E.phone.value;if(!time){m.textContent='Pick a time slot.';return}
+ $('#sb').disabled=true;$('#sb').textContent='Booking…';
+ const r=await fetch('/api/bookings',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:E.name.value,phone:ph,date:dt.value,time,notes:E.notes.value,services:services.filter(s=>picks.has(s.id)).map(s=>s.name)})});
+ const j=await r.json().catch(()=>({error:'Booking needs the server. Run npm start and open localhost:3000.'}));
+ if(r.ok){f.innerHTML=`<div class="ok"><svg viewBox="0 0 52 52" fill="none" stroke="#d9b25f" stroke-width="4"><circle cx="26" cy="26" r="22"/><path d="M15 27l8 8 14-16"/></svg><h2 style="font-size:2rem">You’re booked</h2><p>${dt.value} at ${time}. We’ll confirm on ${ph} shortly.</p><button onclick="location.reload()" style="margin-top:1rem;padding:0.6rem 1.2rem;border-radius:999px;border:none;background:#ff3366;color:#fff;cursor:pointer;font-weight:600;">Book another slot</button></div>`;if(!still)gsap.from('.ok',{scale:.8,opacity:0,duration:.6,ease:'back.out(2)'})}
+ else{m.textContent=j.error;$('#sb').disabled=false;$('#sb').textContent='Confirm booking';slots()}};
+load();
+const pg=$('#prog');addEventListener('scroll',()=>{const m=document.body.scrollHeight-innerHeight;pg.style.transform=`scaleX(${scrollY/m})`},{passive:true});
+if(matchMedia('(pointer:fine)').matches&&!still){const g=$('#glow');addEventListener('pointermove',e=>gsap.to(g,{x:e.clientX,y:e.clientY,duration:.8}));
+ grid.addEventListener('pointermove',e=>{const c=e.target.closest('.card');if(!c)return;const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;gsap.to(c,{rotateY:x*10,rotateX:-y*10,transformPerspective:700,duration:.3})});
+ grid.addEventListener('pointerout',e=>{const c=e.target.closest('.card');if(c)gsap.to(c,{rotateX:0,rotateY:0,duration:.5})});
+ document.querySelectorAll('a.btn').forEach(b=>{b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();gsap.to(b,{x:(e.clientX-r.left-r.width/2)*.25,y:(e.clientY-r.top-r.height/2)*.35,duration:.3})});b.addEventListener('pointerleave',()=>gsap.to(b,{x:0,y:0,duration:.5,ease:'elastic.out(1,.4)'}))})}
+if(!still){gsap.utils.toArray('.wrap h2').forEach(h=>gsap.from(h,{clipPath:'inset(0 0 100% 0)',y:50,duration:.9,ease:'power3.out',scrollTrigger:{trigger:h,start:'top 88%'}}));
+ gsap.to('#ln',{scaleX:1,ease:'none',scrollTrigger:{trigger:'.steps',start:'top 85%',end:'bottom 55%',scrub:true}});
+ gsap.from('.steps div',{opacity:0,y:40,stagger:.2,duration:.7,scrollTrigger:{trigger:'.steps',start:'top 85%'}})}else $('#ln').style.transform='none';
+</script></body></html>

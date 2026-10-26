@@ -1,0 +1,117 @@
+{
+  "services": [],
+  "offers": [
+    {
+      "id": "o1",
+      "title": "Festive season",
+      "text": "Free gold foil accent on every full set this month",
+      "active": true
+    }
+  ],
+  "bookings": [
+    {
+      "id": "0116b1b9",
+      "name": "Sumit",
+      "phone": "9326053573",
+      "date": "2026-12-06",
+      "time": "11:00",
+      "services": [
+        "Customised Press-On Nails"
+      ],
+      "notes": "",
+      "status": "new",
+      "created": "2026-10-21T10:56:56.267Z"
+    },
+    {
+      "id": "313486fb",
+      "name": "Sahil Patkar",
+      "phone": "7045503756",
+      "date": "2026-10-24",
+      "time": "11:00",
+      "services": [
+        "Customised Press-On Nails"
+      ],
+      "notes": "",
+      "status": "new",
+      "created": "2026-10-23T17:49:31.722Z"
+    },
+    {
+      "id": "4119d426",
+      "name": "Sahil Patkar",
+      "phone": "7045503756",
+      "date": "2026-12-12",
+      "time": "11:00",
+      "services": [
+        "Gel Extensions"
+      ],
+      "notes": "",
+      "status": "new",
+      "created": "2026-10-26T18:45:23.165Z"
+    },
+    {
+      "id": "54b6e8ea",
+      "name": "Sahil Patkar",
+      "phone": "7045503756",
+      "date": "2222-12-12",
+      "time": "11:00",
+      "services": [
+        "Customised Press-On Nails"
+      ],
+      "notes": "",
+      "status": "new",
+      "created": "2026-10-26T18:56:24.600Z"
+    },
+    {
+      "id": "df3286bc",
+      "name": "Sahil Patkar",
+      "phone": "7045503756",
+      "date": "2222-12-12",
+      "time": "12:00",
+      "services": [
+        "Gel Extensions"
+      ],
+      "notes": "",
+      "status": "new",
+      "created": "2026-10-26T18:57:37.307Z"
+    },
+    {
+      "id": "14449e76",
+      "name": "Sahil Patkar",
+      "phone": "7045503756",
+      "date": "3333-12-12",
+      "time": "11:00",
+      "services": [
+        "Gel Extensions"
+      ],
+      "notes": "",
+      "status": "new",
+      "created": "2026-10-26T18:59:38.189Z"
+    },
+    {
+      "id": "64138031",
+      "name": "Sahil Patkar",
+      "phone": "7045503756",
+      "date": "4343-12-12",
+      "time": "11:00",
+      "services": [
+        "Gel Extensions"
+      ],
+      "notes": "",
+      "status": "new",
+      "created": "2026-10-26T19:08:19.662Z"
+    },
+    {
+      "id": "1fe0cf52",
+      "name": "Sahil Patkar",
+      "phone": "7045503756",
+      "date": "2323-12-12",
+      "time": "11:00",
+      "services": [
+        "Gel Extensions"
+      ],
+      "notes": "",
+      "status": "new",
+      "created": "2026-10-26T19:48:43.217Z"
+    }
+  ]
+}

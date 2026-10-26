@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Glitter Belles · Studio admin</title>
+<style>
+:root{--ink:#2b0d17;--wine:#7a1230;--blush:#fbeeeb;--line:#ecd3cf}
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,sans-serif;background:var(--blush);color:var(--ink)}
+main{max-width:860px;margin:auto;padding:20px}h1{font-size:1.5rem}
+nav{display:flex;gap:8px;margin:16px 0}nav button,.btn{border:0;border-radius:99px;padding:10px 18px;background:#fff;color:var(--ink);cursor:pointer;font:inherit;border:1px solid var(--line)}
+nav button.on,.btn.p{background:var(--wine);color:#fff;border-color:var(--wine)}
+form,.row{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px}
+form{display:grid;gap:10px;grid-template-columns:1fr 1fr}form .w{grid-column:1/-1}
+input,select,textarea{width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;font:inherit}
+label{font-size:.85rem}.row{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.row small{display:block;opacity:.7}#login{max-width:340px;margin:20vh auto;display:grid;gap:10px}
+@media(max-width:600px){form{grid-template-columns:1fr}}
+</style></head><body><main>
+<div id="login"><h1>Glitter Belles studio</h1><input id="pw" type="password" placeholder="Admin password"><button class="btn p" id="go">Log in</button><small id="err"></small></div>
+<div id="app" hidden><h1>Studio admin <a class="btn" href="/" target="_blank">View site</a></h1>
+<nav><button data-t="services" class="on">Services</button><button data-t="offers">Offers</button><button data-t="bookings">Bookings</button></nav>
+<form id="f"></form><div id="list"></div></div>
+<script>
+const F={services:[['name','Service name'],['category','Category (e.g. Nail art)'],['price','Price (₹)','number'],['duration','Duration (minutes)','number'],['description','Description','text','w']],
+offers:[['title','Offer title'],['text','Offer text (shown on the site banner)','text','w']]};
+let tok='',tab='services',edit=null,data=[];const $=s=>document.querySelector(s);
+const api=(m,u,b)=>fetch('/api/'+u,{method:m,headers:{'Content-Type':'application/json','x-token':tok},body:b&&JSON.stringify(b)}).then(r=>r.json());
+$('#go').onclick=async()=>{const r=await api('POST','login',{password:$('#pw').value});if(r.token){tok=r.token;$('#login').hidden=true;$('#app').hidden=false;show()}else $('#err').textContent=r.error};
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on',x==b));tab=b.dataset.t;edit=null;show()});
+async function show(){data=await api('GET','admin/'+tab);form();list()}
+function form(){const f=$('#f');f.hidden=tab=='bookings';if(f.hidden)return;const e=edit||{active:true};
+f.innerHTML=F[tab].map(([k,l,t,w])=>`<div class="${w||''}"><label>${l}<input name="${k}" type="${t||'text'}" value="${(e[k]??'').toString().replace(/"/g,'&quot;')}"></label></div>`).join('')+
+`<label><input type="checkbox" name="active" ${e.active?'checked':''} style="width:auto"> Show on website</label><div class="w"><button class="btn p">${edit?'Save changes':'Add new'}</button></div>`;
+f.onsubmit=async ev=>{ev.preventDefault();const b={};F[tab].forEach(([k,,t])=>{const v=f[k].value;b[k]=t=='number'?+v:v});b.active=f.active.checked;
+edit?await api('PUT',`admin/${tab}/${edit.id}`,b):await api('POST','admin/'+tab,b);edit=null;show()}}
+function list(){$('#list').innerHTML=data.length?data.map(d=>tab=='bookings'?
+`<div class="row"><div><b>${d.name}</b> · ${d.phone}<small>${d.date} at ${d.time} · ${(d.services||[]).join(', ')||'No service picked'}${d.notes?' · '+d.notes:''}</small></div>
+<div><select data-id="${d.id}" class="st">${['new','confirmed','done','cancelled'].map(s=>`<option ${d.status==s?'selected':''}>${s}</option>`)}</select> <button class="btn" data-del="${d.id}">Delete</button></div></div>`:
+`<div class="row"><div><b>${d.name||d.title}</b> ${d.price?'· ₹'+d.price:''}<small>${d.category||''} ${d.description||d.text||''}${d.active?'':' (hidden)'}</small></div>
+<div><button class="btn" data-ed="${d.id}">Edit</button> <button class="btn" data-del="${d.id}">Remove</button></div></div>`).join(''):'<p>Nothing here yet. Add your first item above.</p>';
+document.querySelectorAll('[data-ed]').forEach(b=>b.onclick=()=>{edit=data.find(x=>x.id==b.dataset.ed);form();scrollTo(0,0)});
+document.querySelectorAll('[data-del]').forEach(b=>b.onclick=async()=>{if(confirm('Remove this?')){await api('DELETE',`admin/${tab}/${b.dataset.del}`);show()}});
+document.querySelectorAll('.st').forEach(s=>s.onchange=()=>api('PUT',`admin/bookings/${s.dataset.id}`,{status:s.value}))}
+</script></main></body></html>
